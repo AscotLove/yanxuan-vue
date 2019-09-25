@@ -8,10 +8,17 @@
     <title>yanxuan-vue</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but yanxuan-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    ;(function () {
+      var styleNode = document.createElement('style');
+      var Ww = document.documentElement.clientWidth/10;
+      styleNode.innerHTML = 'html{font-size:' + Ww + 'px !important};'
+      document.head.appendChild(styleNode)
+    })();
+
+  </script>
 </html>
