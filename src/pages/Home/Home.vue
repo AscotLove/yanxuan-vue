@@ -1,34 +1,65 @@
 <template>
-  <ul class="g-grow">
-    <li class="iconfont icon-pinpai">网易自营品牌</li>
-    <li class="iconfont icon-iconfont-">30天无忧退货</li>
-    <li class="iconfont icon-tuikuan">48小时快速退款</li>
-  </ul>
+  <div class="home">
+    <Homehead></Homehead>
+    <ul class="g-grow">
+      <li class="iconfont" v-for="policyDescList in homeState.policyDescList" :key="policyDescList.desc">
+        <i :style="'background-image:url('+policyDescList.icon +')'"></i>
+        <span>{{policyDescList.desc}}</span>
+      </li>
+    </ul>
+    <swipet></swipet>
+    <navList :kingKongList="homeState.kingKongModule.kingKongList"></navList>
+    <ShopList></ShopList>
+  </div>
+
 </template>
 
 <script>
+  import Homehead from '@components/Home-head/Homehead';
+  import navList from '@components/nav-list/navList.vue'
+  import swipet from '@components/swipet/swipet'
+  import ShopList from '@components/Shop-list/ShopList.vue'
+  import {mapState,mapActions} from 'vuex';
   export default {
-    name: "Home"
+    name: "Home",
+    components: {
+      Homehead,
+      navList,
+      swipet,
+      ShopList
+    },
+    computed: {
+      ...mapState(['homeState']),
+
+    },
+    methods: {
+      ...mapActions(['homeUpdate'])
+    },
+    created() {
+      this.homeUpdate()
+    }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+@import '../../common/css/mixin.styl';
+@import '../../common/css/extendss.styl';
   .g-grow
     @extends .flex-center
     padding 0 rem(30)
+    height rem(72)
+    align-items center
     justify-content space-between
-    font(16)
-  .menu-nav
-    @extends .flex-center
-    justify-content space-between
-    flex-wrap wrap
-    li
-      >a
-        margin rem(10) rem(20)
-        img
-          width rem(110)
-          height rem(110)
+    .iconfont
+      @extends .flex-center
+      >i
+        width rem(32)
+        height rem(32)
+        background-size 100% 100%
+      span
+        font(24)
+
+
 
 
 </style>

@@ -1,67 +1,14 @@
 <template>
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <ul class="menu-nav">
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            <p>新品手法</p>
+      <ul class="menu-nav" v-for="(kingKongLists,index) in kingKongListArr" :key="index">
+        <li v-for="kingKong in kingKongLists" :key="kingKong.text">
+          <a :href="kingKong.schemeUrl">
+            <img :src="kingKong.picUrl" alt="">
+            <p>{{kingKong.text}}</p>
           </a>
         </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <img src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png" alt="">
-            新品手法
-          </a>
-        </li>
+
       </ul>
 
     </div>
@@ -69,11 +16,46 @@
 </template>
 
 <script>
+  import _ from 'lodash'
+  import Swiper from 'swiper';
   export default {
-    name: "navList"
+    name: "navList",
+    props: {
+      kingKongList: Array,
+    },
+    computed: {
+      kingKongListArr() {
+        return _.chunk(this.kingKongList, 10)
+      }
+    },
+    methods: {
+      newSwiper() {
+        new Swiper("swiper-wrapper",{
+          direction: 'vertical', // 垂直切换选项
+          loop: true, // 循环模式选项
+        })
+      }
+    },
+    mounted() {
+      this.newSwiper()
+    }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+  @import '../../common/css/extendss.styl';
+  @import '../../common/css/mixin.styl';
+  .menu-nav
+    @extends .flex-center
+    flex-wrap wrap
+    li
+      height rem(156)
+      > a
+        margin rem(10) rem(20)
+        font(16)
+        height 100%
+        text-align center
+        img
+          width rem(110)
+          height rem(110)
 </style>

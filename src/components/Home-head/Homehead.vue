@@ -17,7 +17,7 @@
 
     </div>
     <nav class="m-tabs">
-      <div>
+      <div class="active">
         推荐
       </div>
       <div>
@@ -29,11 +29,12 @@
       <div>
         美食酒水
       </div>
-      <div>
+      <div class="iconfont">
         &#xe602;
       </div>
     </nav>
     <ul class="tabWrap">
+
       <li class="tabWrap-li">
         <a>
           全部频道
@@ -81,7 +82,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+@import '../../common/css/mixin.styl';
+@import '../../common/css/extendss.styl';
   header
     .m-defaultBanner
       font-size rem(12)
@@ -92,13 +94,16 @@
       background #333333
       color #fff
       .brand
+        white-space nowrap
         .brand-logo
-          display inline-block
           float left
           width rem(72)
           height rem(72)
+          margin-right rem(10)
           border-radius rem(7)
           background-color  #b4282d
+        >p
+          margin rem(8) 0
       .w-button
         background-color #b4282d
         border-radius rem(4)
@@ -135,8 +140,15 @@
       font-size rem(18)
       padding 0 rem(30)
       justify-content space-between
+      div
+        &.active
+          color #b4282d
+          outline-color #b4282d
+
+
     .tabWrap
       @extends .flex-center
+      display none
       flex-wrap wrap
       >li
         font(12)
