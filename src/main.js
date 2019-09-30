@@ -3,6 +3,7 @@ import App from "./App.vue";
 
 import store from './vuex';
 import router from './router';
+import './validate';
 import './mock';
 
 Vue.config.productionTip = false;

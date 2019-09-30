@@ -1,39 +1,39 @@
 <template>
   <ul class="footerNav">
     <li>
-      <a class="iconfont icon-fangzi">
+      <router-link to="/Home" class="iconfont icon-fangzi">
         <span>
         主页
         </span>
-      </a>
+      </router-link>
     </li>
     <li>
-      <a class="iconfont icon-cate">
+      <router-link to="/CateList/categoryGood/0" class="iconfont icon-cate">
         <span>
           菜单
         </span>
-      </a>
+      </router-link>
     </li>
     <li>
-      <a class="iconfont icon-topic">
+      <router-link to="/Topic" class="iconfont icon-topic">
         <span>
-          寻物
+          识物
         </span>
-      </a>
+      </router-link>
     </li>
     <li>
-      <a class="iconfont icon-ShoppingCartArrowDown">
+      <a class="iconfont icon-ShoppingCartArrowDown" >
         <span>
           购物车
         </span>
       </a>
     </li>
     <li>
-      <a class="iconfont icon-ucenter">
+      <router-link to="/User" class="iconfont icon-ucenter">
         <span>
           我的
         </span>
-      </a>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -52,6 +52,8 @@
   .footerNav
     @extend .flex-center
     padding 0 rem(30)
+    width 100%
+    height rem(98)
     justify-content space-between
     text-align center
     > li

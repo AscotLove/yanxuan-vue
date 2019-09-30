@@ -16,61 +16,8 @@
       </div>
 
     </div>
-    <nav class="m-tabs">
-      <div class="active">
-        推荐
-      </div>
-      <div>
-        居家生活
-      </div>
-      <div>
-        服饰鞋包
-      </div>
-      <div>
-        美食酒水
-      </div>
-      <div class="iconfont">
-        &#xe602;
-      </div>
-    </nav>
-    <ul class="tabWrap">
+    <slot name="navLi"></slot>
 
-      <li class="tabWrap-li">
-        <a>
-          全部频道
-        </a>
-        <i>
-          &#xe600;
-        </i>
-      </li>
-      <li>
-        <a href="javascript:;">推荐</a>
-      </li>
-      <li>
-        <a href="javascript:;">居家生活</a>
-      </li>
-      <li>
-        <a href="javascript:;">服饰鞋包</a>
-      </li>
-      <li>
-        <a href="javascript:;">美食酒水</a>
-      </li>
-      <li>
-        <a href="javascript:;">个护清洁</a>
-      </li>
-      <li>
-        <a href="javascript:;">母英亲子</a>
-      </li>
-      <li>
-        <a href="javascript:;">运动旅行</a>
-      </li>
-      <li>
-        <a href="javascript:;">数码家电</a>
-      </li>
-      <li>
-        <a href="javascript:;">全球特色</a>
-      </li>
-    </ul>
   </header>
 </template>
 

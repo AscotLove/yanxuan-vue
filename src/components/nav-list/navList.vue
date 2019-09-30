@@ -1,7 +1,7 @@
 <template>
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <ul class="menu-nav" v-for="(kingKongLists,index) in kingKongListArr" :key="index">
+      <ul class="menu-nav"  v-for="(kingKongLists,index) in kingKongListArr" :key="index">
         <li v-for="kingKong in kingKongLists" :key="kingKong.text">
           <a :href="kingKong.schemeUrl">
             <img :src="kingKong.picUrl" alt="">

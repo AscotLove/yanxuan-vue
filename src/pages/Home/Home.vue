@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Homehead></Homehead>
     <ul class="g-grow">
       <li class="iconfont" v-for="policyDescList in homeState.policyDescList" :key="policyDescList.desc">
         <i :style="'background-image:url('+policyDescList.icon +')'"></i>
@@ -8,14 +7,13 @@
       </li>
     </ul>
     <swipet></swipet>
-    <navList :kingKongList="homeState.kingKongModule.kingKongList"></navList>
+    <navList v-if="homeState.kingKongModule"  :kingKongList="homeState.kingKongModule.kingKongList" ></navList>
     <ShopList></ShopList>
   </div>
 
 </template>
 
 <script>
-  import Homehead from '@components/Home-head/Homehead';
   import navList from '@components/nav-list/navList.vue'
   import swipet from '@components/swipet/swipet'
   import ShopList from '@components/Shop-list/ShopList.vue'
@@ -23,20 +21,18 @@
   export default {
     name: "Home",
     components: {
-      Homehead,
       navList,
       swipet,
       ShopList
     },
     computed: {
       ...mapState(['homeState']),
-
     },
     methods: {
       ...mapActions(['homeUpdate'])
     },
     created() {
-      this.homeUpdate()
+      this.homeUpdate();
     }
   }
 </script>
